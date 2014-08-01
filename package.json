@@ -1,0 +1,31 @@
+{
+  "name": "orm-restify",
+  "version": "0.0.0",
+  "description": "orm with restify",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Gerhut/orm-restify.git"
+  },
+  "keywords": [
+    "orm",
+    "restify"
+  ],
+  "author": "Gerhut <Gerhut@GMail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gerhut/orm-restify/issues"
+  },
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "orm": "^2.1.18",
+    "restify": "^2.8.1",
+    "pg": "~3.4.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.3"
+  }
+}
