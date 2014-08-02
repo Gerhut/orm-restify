@@ -31,10 +31,10 @@ if (config.debug) {
 }
 
 server.use(restify.acceptParser(server.acceptable))
-server.use(restify.authorizationParser())
-server.use(restify.CORS())
 server.use(restify.queryParser({ mapParams: false }))
 server.use(restify.bodyParser({ maxBodySize: 1024 * 1024 }))
+server.use(restify.authorizationParser())
+server.use(restify.CORS({headers: ['authorization']}));
 server.use(restify.gzipResponse())
 
 apps(db, server)
