@@ -64,7 +64,7 @@ module.exports = function (db) {
       if (err) {
         if (err.code == 23505)
             return console.log('admin already exists')
-        return console.err(err.message)
+        return console.error(err.message)
       }
 
       return console.log('admin created successfully')
