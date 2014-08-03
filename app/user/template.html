@@ -1,0 +1,64 @@
+<div class="btn-group navbar-right" dropdown is-open="isOpen">
+  <button type="button"
+    class="btn btn-default navbar-btn dropdown-toggle">
+    <span ng-bind="id || '游客'"></span> <span class="caret"></span>
+  </button>
+  <div class="dropdown-menu" ng-click="$event.stopPropagation()">
+    <div class="container-fluid">
+      <alert type="danger"
+        ng-show="alert" close="alert=null">
+        <span ng-bind="alert"></span>
+      </alert>
+      <tabset justified="true" ng-if="!id">
+        <tab heading="注册">
+          <form ng-submit="register(id, password, confirmPassword)">
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+              <input type="text" required class="form-control" ng-model="id">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+              <input type="password" required class="form-control" ng-model="password">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+              <input type="password" required class="form-control" ng-model="confirmPassword">
+            </div>
+            <button class="btn btn-success btn-block">注册</button>
+          </form>
+        </tab>
+        <tab heading="登录">
+          <form ng-submit="login(id, password)">
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+              <input type="text" required class="form-control" ng-model="id">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+              <input type="password" required class="form-control" ng-model="password">
+            </div>
+            <button class="btn btn-primary btn-block">登录</button>
+          </form>
+        </tab>
+      </tabset>
+      <div ng-if="id">
+        <form ng-submit="changePassword(oldPassword, newPassword, confirmPassword)">
+          <div class="input-group">
+            <span class="input-group-addon">旧 <span class="glyphicon glyphicon-lock"></span></span>
+            <input type="password" required class="form-control" ng-model="oldPassword">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">新 <span class="glyphicon glyphicon-lock"></span></span>
+            <input type="password" required class="form-control" ng-model="newPassword">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">新 <span class="glyphicon glyphicon-lock"></span></span>
+            <input type="password" required class="form-control" ng-model="confirmPassword">
+          </div>
+          <button class="btn btn-warning btn-block">更改密码</button>
+        </form>
+        <button class="btn btn-danger btn-block" ng-click="logout()">注销</button>
+      </div>
+    </div>
+  </div>
+</div>

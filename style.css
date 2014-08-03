@@ -1,2 +1,10 @@
 /* angular-ui-bootstrap fix */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.dropdown-menu .input-group {
+  margin: 10px 0;
+}
+
+.dropdown-menu .form-control {
+  width: 10em;
+}

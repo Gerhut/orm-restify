@@ -1,3 +1,4 @@
 angular.module('ormRestify', [
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ormRestify.user'
 ])
