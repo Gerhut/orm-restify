@@ -1,12 +1,12 @@
 angular.module('ormRestify.user')
   .service('user',
-  ['$http', '$resource',
-  function ($http, $resource) {
+  ['$http', '$resource', 'remote',
+  function ($http, $resource, remote) {
 
     var _id = null
     var _access = null
 
-    var resource = $resource('http://localhost:8080/user/:id', null, {
+    var resource = $resource(remote + '/user/:id', null, {
       change: { method:'PUT' }
     })
 
