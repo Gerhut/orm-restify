@@ -9,6 +9,8 @@ orm.settings.set('properties', config.orm.properties)
 orm.settings.set('instance', config.orm.instance)
 orm.settings.set('connection', config.orm.connection)
 
+restify.CORS.ALLOW_HEADERS.push('authorization')
+
 var db = orm.connect(config.database)
 
 var server = restify.createServer(config.server)
@@ -19,7 +21,7 @@ server.pre(function (req, res, next) {
 })
 
 server.pre(function (req, res, next) {
-  req.origin = (req.isSecure() ? 'https://' : 'http://') + req.header('Host')
+  req.origin = req.headers.origin || (req.isSecure() ? 'https://' : 'http://') + req.header('Host')
   next()
 })
 
@@ -34,7 +36,7 @@ server.use(restify.acceptParser(server.acceptable))
 server.use(restify.queryParser({ mapParams: false }))
 server.use(restify.bodyParser({ maxBodySize: 1024 * 1024 }))
 server.use(restify.authorizationParser())
-server.use(restify.CORS({headers: ['authorization']}));
+server.use(restify.CORS())
 server.use(restify.gzipResponse())
 
 apps(db, server)
