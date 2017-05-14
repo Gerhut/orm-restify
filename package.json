@@ -20,12 +20,12 @@
     "url": "https://github.com/Gerhut/orm-restify/issues"
   },
   "dependencies": {
-    "lodash": "^2.4.1",
-    "orm": "^2.1.18",
-    "restify": "^2.8.1",
-    "pg": "~3.4.0"
+    "lodash": "^4.17.4",
+    "orm": "^3.2.3",
+    "restify": "^4.3.0",
+    "pg": "~6.1.5"
   },
   "devDependencies": {
-    "mocha": "^1.21.3"
+    "mocha": "^3.3.0"
   }
 }
